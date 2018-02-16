@@ -11,7 +11,6 @@ public class TurboSmsMessengerApplicationTests {
 
 	@Test
 	public void contextLoads() {
-
 	}
 
 }
