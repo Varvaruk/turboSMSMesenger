@@ -1,27 +1,27 @@
-package com.gmail.v.varvaruk89.model;
-
+package com.gmail.v.varvaruk89.entities.tsm;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
+import java.io.Serializable;
+
 
 @Entity
-@Table (name = "GROUPS")
-public class Group {
-
+@Table(name = "MESSAGES")
+public class Message implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+
     private int id;
 
     private String name;
-    private List<Student> students = new ArrayList<>();
 
-    public Group() {
+    private String text;
+
+    public Message() {
     }
 
-    public Group(String name, List<Student> students) {
+    public Message(String name, String text) {
         this.name = name;
-        this.students = students;
+        this.text = text;
     }
 
     public int getId() {
@@ -40,5 +40,11 @@ public class Group {
         this.name = name;
     }
 
+    public String getText() {
+        return text;
+    }
 
+    public void setText(String text) {
+        this.text = text;
+    }
 }
