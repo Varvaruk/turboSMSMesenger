@@ -1,6 +1,6 @@
 package com.gmail.v.varvaruk89.controllers;
 
-import com.gmail.v.varvaruk89.dao.MessageDao;
+import com.gmail.v.varvaruk89.repo.tsm.MessageRepository;
 import com.gmail.v.varvaruk89.entities.tsm.Message;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class MessageController {
 
     @Autowired
-    MessageDao messageDao;
+    MessageRepository messageRepository;
 
     @RequestMapping("/newmesage")
 
@@ -19,7 +19,7 @@ public class MessageController {
         String name = "nameMSM";
         String text = "messageTEXT";
         Message message = new Message(name,text);
-        messageDao.save(message);
-                return "Message successfully updated!";
+        messageRepository.save(message);
+                return "greeting";
     }
 }

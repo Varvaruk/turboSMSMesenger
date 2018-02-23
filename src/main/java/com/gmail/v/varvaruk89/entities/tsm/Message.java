@@ -1,14 +1,16 @@
 package com.gmail.v.varvaruk89.entities.tsm;
 
+import lombok.Data;
+
 import javax.persistence.*;
-import java.io.Serializable;
 
 
 @Entity
 @Table(name = "MESSAGES")
-public class Message implements Serializable {
+@Data
+public class Message  {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
 
     private int id;
 

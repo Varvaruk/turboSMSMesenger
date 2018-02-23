@@ -6,10 +6,10 @@ import javax.persistence.*;
 import java.sql.Timestamp;
 @Data
 @Entity
-@Table(name = "progkievua1")
+@Table(name = "aluxsms")
 public class Sms {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
 
@@ -58,4 +58,12 @@ public class Sms {
     @Transient
     private String status;
 
+    public Sms() {
+    }
+
+    public Sms(String number, String sign, String message) {
+        this.number = number;
+        this.sign = sign;
+        this.message = message;
+    }
 }
