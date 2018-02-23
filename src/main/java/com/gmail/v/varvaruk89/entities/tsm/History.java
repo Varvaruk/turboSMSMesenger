@@ -8,7 +8,8 @@ import java.util.Date;
 @Entity
 public class History {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     private  int id;
     @OneToOne(fetch = FetchType.LAZY)
     private User user;

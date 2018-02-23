@@ -8,14 +8,11 @@ import javax.persistence.*;
 @Entity
 @Table(name = "MESSAGES")
 @Data
-public class Message  {
+public class Message {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-
     private int id;
-
     private String name;
-
     private String text;
 
     public Message() {

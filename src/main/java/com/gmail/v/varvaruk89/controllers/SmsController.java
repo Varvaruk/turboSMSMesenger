@@ -17,7 +17,7 @@ public class SmsController {
     SmsRepository smsRepository;
     @RequestMapping("/sms")
     public String greeting(@RequestParam(value="name", required=false, defaultValue="World") String name, Model model) {
-       String smstext = "Test otpravki na grupu nomeriv. Vadim";
+       String smstext = "Test otpravki. Vadim";
        String [] pull = {"380936094346"};
        String sign = "Autolux";
         for (String nomer:pull) {
