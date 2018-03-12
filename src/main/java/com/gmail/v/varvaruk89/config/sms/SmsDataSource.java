@@ -55,7 +55,7 @@ public class SmsDataSource {
         return dataSource;
     }
 
-    @Primary
+    
     @Bean
     public PlatformTransactionManager db1TransactionManager() {
 
