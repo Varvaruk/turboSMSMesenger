@@ -3,6 +3,7 @@ package com.gmail.v.varvaruk89.config.tsm;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
 import org.springframework.core.env.Environment;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
@@ -44,6 +45,7 @@ public class TsmDataSource {
         return em;
     }
 
+    @Primary
     @Bean
     public DataSource db2Datasource() {
         DriverManagerDataSource dataSource
@@ -57,6 +59,8 @@ public class TsmDataSource {
 
         return dataSource;
     }
+
+
 
     @Bean
     public PlatformTransactionManager db2TransactionManager() {

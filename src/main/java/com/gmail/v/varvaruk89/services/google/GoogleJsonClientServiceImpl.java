@@ -94,7 +94,7 @@ public class GoogleJsonClientServiceImpl implements GoogleJsonClientService {
     @Override
     public Credential getCredential() throws IOException {
 
-        FileInputStream fileInputStream = new FileInputStream("C:\\Java\\DIPLOM\\restgoogle\\test.json");
+        FileInputStream fileInputStream = new FileInputStream(jsonFile);
 
         GoogleClientSecrets clientSecrets =
                 GoogleClientSecrets.load(jacksonFactory, new InputStreamReader(fileInputStream));

@@ -40,7 +40,6 @@ public class SmsDataSource {
         return em;
     }
 
-    @Primary
     @Bean
     public DataSource db1Datasource() {
 

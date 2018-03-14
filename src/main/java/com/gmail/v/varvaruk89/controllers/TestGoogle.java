@@ -12,12 +12,17 @@ public class TestGoogle {
     @Autowired
     GoogleJsonClientService googleJsonClientService;
 
+
     @RequestMapping("/test")
 
     public String getIds () throws IOException {
       System.out.println( googleJsonClientService.synchronizationGroupOfGOOGLE());
 
+
+
+
         return "greeting";
+
     }
 
 
