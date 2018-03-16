@@ -11,6 +11,7 @@ public interface MessageService {
     void addMessage(Message message);
     void deleteMessage(String messageId);
     void editMessage(String messageId,String name,String text);
+    Message getOne (String id);
     List<Message> getAllMessages();
 
 

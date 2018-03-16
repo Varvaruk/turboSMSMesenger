@@ -15,26 +15,36 @@ public class MessageServiceImpl implements MessageService {
 
     @Override
     public void addMessage(Message message) {
-messageRepository.save(message);
+        messageRepository.save(message);
     }
 
     @Override
     public void deleteMessage(String messageId) {
-messageRepository.delete(Long.parseLong(messageId));
+        messageRepository.delete(Long.getLong(messageId));
     }
 
     @Override
-    public void editMessage(String messageId,String name,String text) {
-    Message message=  messageRepository.findOne(Long.parseLong(messageId));
-    message.setName(name);
-    message.setText(text);
-    messageRepository.save(message);
+    public void editMessage(String messageId, String name, String text) {
+        Message message = messageRepository.findOne(Long.getLong(messageId));
+        message.setName(name);
+        message.setText(text);
+        messageRepository.save(message);
 
     }
 
     @Override
     public List<Message> getAllMessages() {
-     List<Message> messageList= (List<Message>) messageRepository.findAll();
+        List<Message> messageList = (List<Message>) messageRepository.findAll();
         return messageList;
     }
+
+    @Override
+    public Message getOne(String id) {
+        System.out.println(id);
+        System.out.println(Long.parseLong(id));
+     Message message= messageRepository.findOne(Long.decode(id));
+
+        return message;
+    }
+
 }
