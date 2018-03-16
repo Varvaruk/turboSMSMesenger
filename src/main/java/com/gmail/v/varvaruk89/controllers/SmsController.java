@@ -26,7 +26,7 @@ public class SmsController {
 
         }
 
-        return "greeting";
+        return "home";
     }
 
 }

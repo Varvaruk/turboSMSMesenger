@@ -45,6 +45,7 @@ public class UserServiceImpl implements UserService {
 
     @PostConstruct
     void in() {
+
         User user = new User();
         user.setUsername("admin");
         user.setPassword(new BCryptPasswordEncoder().encode("admin"));

@@ -2,6 +2,7 @@ package com.gmail.v.varvaruk89.controllers;
 
 import com.gmail.v.varvaruk89.services.google.GoogleJsonClientService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -12,8 +13,8 @@ public class TestGoogle {
     @Autowired
     GoogleJsonClientService googleJsonClientService;
 
-
-    @RequestMapping("/test")
+    @PreAuthorize("hasRole('ADMIN')")
+    @RequestMapping("/example")
 
     public String getIds () throws IOException {
       System.out.println( googleJsonClientService.synchronizationGroupOfGOOGLE());
@@ -21,7 +22,7 @@ public class TestGoogle {
 
 
 
-        return "greeting";
+        return "index";
 
     }
 
