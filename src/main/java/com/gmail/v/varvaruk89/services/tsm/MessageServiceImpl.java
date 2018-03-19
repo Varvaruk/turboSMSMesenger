@@ -14,18 +14,18 @@ public class MessageServiceImpl implements MessageService {
     MessageRepository messageRepository;
 
     @Override
-    public void addMessage(Message message) {
+    public void saveMessage(Message message) {
         messageRepository.save(message);
     }
 
     @Override
     public void deleteMessage(String messageId) {
-        messageRepository.delete(Long.getLong(messageId));
+        messageRepository.delete(Long.decode(messageId));
     }
 
     @Override
     public void editMessage(String messageId, String name, String text) {
-        Message message = messageRepository.findOne(Long.getLong(messageId));
+        Message message = messageRepository.findOne(Long.decode(messageId));
         message.setName(name);
         message.setText(text);
         messageRepository.save(message);

@@ -19,7 +19,7 @@ public class MessageController {
     @Autowired
     MessageService messageService;
 
-   @RequestMapping
+    @RequestMapping
     public String messages(ModelMap modelMap) {
         List<Message> messageList = messageService.getAllMessages();
         modelMap.addAttribute("messages", messageList);
@@ -27,33 +27,33 @@ public class MessageController {
     }
 
 
-    @RequestMapping(value = "/edit",method = RequestMethod.GET)
-    public String editMessage(@RequestParam("id") String id, ModelMap modelMap){
+    @RequestMapping(value = "/edit", method = RequestMethod.GET)
+    public String editMessage(@RequestParam("id") String id, ModelMap modelMap) {
 
-      Message message = messageService.getOne(id);
-      modelMap.addAttribute("message",message);
+        Message message = messageService.getOne(id);
+        modelMap.addAttribute("message", message);
 
-       return "messageForm";
+        return "messageForm";
     }
 
-    @RequestMapping(value = "/edit",method = RequestMethod.POST)
-    public String saveEditMessage(@ModelAttribute Message message){
-
-       messageService.addMessage(message);
-
-        return "messages";
+    @RequestMapping(value = "/edit", method = RequestMethod.POST)
+    public String saveEditMessage(@ModelAttribute Message message) {
+        messageService.saveMessage(message);
+        return "redirect:../messages";
     }
 
 
-
-    @RequestMapping("/newmesage")
-
-    public String newMessage() {
-
-        String name = "nameMSM";
-        String text = "messageTEXT";
-        Message message = new Message(name, text);
-        messageService.addMessage(message);
-        return "index";
+    @RequestMapping(value = "/delete", method = RequestMethod.GET)
+    public String deleteMessage(@RequestParam("id") String id) {
+        messageService.deleteMessage(id);
+        return "redirect:../messages";
     }
+
+    @RequestMapping(value = "/add", method = RequestMethod.GET)
+    public String addEditMessage(ModelMap modelMap) {
+        modelMap.addAttribute("message",new Message());
+                return "messageForm";
+    }
+
+
 }

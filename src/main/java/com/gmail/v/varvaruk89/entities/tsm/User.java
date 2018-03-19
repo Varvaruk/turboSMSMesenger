@@ -13,14 +13,16 @@ public class User implements UserDetails {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
     @ElementCollection(targetClass = Role.class, fetch = FetchType.EAGER)
 
     @Enumerated(EnumType.STRING)
 
     public List<Role> authorities;
     private String password;
+    private String confirmPassword;
     private String username;
+
     private boolean accountNonExpired;
     private boolean accountNonLocked;
     private boolean credentialsNonExpired;
@@ -39,7 +41,7 @@ public class User implements UserDetails {
         this.enabled = enabled;
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
@@ -109,5 +111,11 @@ public class User implements UserDetails {
         this.enabled = enabled;
     }
 
+    public String getConfirmPassword() {
+        return confirmPassword;
+    }
 
+    public void setConfirmPassword(String confirmPassword) {
+        this.confirmPassword = confirmPassword;
+    }
 }

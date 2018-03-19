@@ -1,6 +1,6 @@
 <th:block xmlns:th="http://www.thymeleaf.org" th:include="layout">
     <div  th:fragment="content">
-        <form  th:object="${message}" th:action="@{/messages/edit}" metod="post">
+        <form  th:object="${message}" th:action="@{/messages/edit}" th:method="post" >
             <input name="id" th:field="*{id}" type="hidden"/>
             <div class="form-group">
                 <label for="inputName">Name</label>

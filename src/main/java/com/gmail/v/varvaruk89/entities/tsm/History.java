@@ -10,12 +10,12 @@ public class History {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
-    private  int id;
-    @OneToOne(fetch = FetchType.LAZY)
+    private  Long id;
+    @OneToOne(fetch = FetchType.EAGER)
     private User user;
-    @OneToOne(fetch = FetchType.LAZY)
+    @OneToOne(fetch = FetchType.EAGER)
     private Message message;
-    @OneToOne(fetch = FetchType.LAZY)
+    @OneToOne(fetch = FetchType.EAGER)
     private Student student;
 
     private String smsId;

@@ -8,7 +8,7 @@ import java.util.List;
 @Service
 public interface MessageService {
 
-    void addMessage(Message message);
+    void saveMessage(Message message);
     void deleteMessage(String messageId);
     void editMessage(String messageId,String name,String text);
     Message getOne (String id);

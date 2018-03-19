@@ -1,18 +1,25 @@
 <th:block xmlns:th="http://www.thymeleaf.org" th:include="layout">
-    <div class="list-group"  th:fragment="content">
-        <th:block th:each="message : ${messages}">
-            <div  class="list-group-item list-group-item-action flex-column align-items-start">
-                <div class="d-flex w-100 justify-content-between">
-                    <h5 th:text="${message.getName()}" class="mb-1"></h5>
-                </div>
-                <p class="mb-1" th:text="${message.getText()}"></p>
-                <div class="clearfix"  >
-                <a role="button" class="btn btn-primary float-right" th:href="@{/messages/edit(id=${message.getId()})}">Edit</a>
-                <a role="button"  class="btn btn-danger float-right">Remove</a>
-                </div>
-            </div>
 
-        </th:block>
+    <div th:fragment="content">
+        <a role="button" class="btn btn-success" th:href="@{/messages/add}" th:method="get" >Add </a>
+        <div class="list-group">
+            <th:block th:each="message : ${messages}">
+                <div class="list-group-item list-group-item-action flex-column align-items-start">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h5 th:text="${message.getName()}" class="mb-1"></h5>
+                    </div>
+                    <p class="mb-1" th:text="${message.getText()}"></p>
+                    <div class="clearfix">
+                        <a role="button" class="btn btn-primary float-right"
+                           th:href="@{/messages/edit(id=${message.getId()})}">Edit</a>
+                        <a role="button" class="btn btn-danger float-right"
+                           th:href="@{/messages/delete(id=${message.getId()})}">Delete</a>
+                    </div>
+                </div>
+
+            </th:block>
+        </div>
     </div>
+
 </th:block>
 

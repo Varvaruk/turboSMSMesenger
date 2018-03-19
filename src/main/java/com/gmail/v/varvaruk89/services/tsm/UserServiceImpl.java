@@ -43,6 +43,53 @@ public class UserServiceImpl implements UserService {
         return Optional.ofNullable(userFou);
     }
 
+    @Override
+    public List<User> getAllUsers() {
+        List<User> userList = (List<User>) userRepository.findAll();
+        return userList;
+    }
+
+    @Override
+    public void editUserAuthorities(String userId, String role) {
+        User user = userRepository.findOne(Long.decode(userId));
+        user.setAuthorities(ImmutableList.of(Role.valueOf(role)));
+
+    }
+
+    @Override
+    public void editUserPassword(String userId, String pass) {
+
+    }
+
+    @Override
+    public void editUserUsername(String userId, String username) {
+
+    }
+
+    @Override
+    public void editUserAccountNonLocked(String userId, boolean nonLocked) {
+
+    }
+
+    @Override
+    public void editUserAccountNonExpired(String userId, boolean nonExpired) {
+
+    }
+
+    @Override
+    public void editUserCredentialsNonExpired(String userId, boolean nonExpired) {
+
+    }
+
+    @Override
+    public void editUserEnabled(String userId, boolean enabled) {
+
+    }
+
+
+
+
+
     @PostConstruct
     void in() {
 

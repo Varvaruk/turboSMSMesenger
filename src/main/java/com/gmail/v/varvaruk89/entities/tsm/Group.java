@@ -13,8 +13,8 @@ import java.util.List;
 public class Group {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     private String name;
     @ManyToMany(mappedBy = "groups",cascade = CascadeType.ALL)
@@ -32,7 +32,7 @@ public class Group {
         this.students = students;
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
