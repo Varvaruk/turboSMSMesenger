@@ -5,6 +5,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.Objects;
 
 
 @Entity
@@ -20,6 +21,7 @@ public class User implements UserDetails {
 
     public List<Role> authorities;
     private String password;
+    @Transient
     private String confirmPassword;
     private String username;
 
@@ -45,6 +47,9 @@ public class User implements UserDetails {
         return id;
     }
 
+    public void setId(Long id){
+        this.id=id;
+    }
 
     @Override
     public List<Role> getAuthorities() {
@@ -117,5 +122,42 @@ public class User implements UserDetails {
 
     public void setConfirmPassword(String confirmPassword) {
         this.confirmPassword = confirmPassword;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", authorities=" + authorities +
+                ", password='" + password + '\'' +
+                ", confirmPassword='" + confirmPassword + '\'' +
+                ", username='" + username + '\'' +
+                ", accountNonExpired=" + accountNonExpired +
+                ", accountNonLocked=" + accountNonLocked +
+                ", credentialsNonExpired=" + credentialsNonExpired +
+                ", enabled=" + enabled +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        User user = (User) o;
+        return accountNonExpired == user.accountNonExpired &&
+                accountNonLocked == user.accountNonLocked &&
+                credentialsNonExpired == user.credentialsNonExpired &&
+                enabled == user.enabled &&
+                Objects.equals(id, user.id) &&
+                Objects.equals(authorities, user.authorities) &&
+                Objects.equals(password, user.password) &&
+                Objects.equals(confirmPassword, user.confirmPassword) &&
+                Objects.equals(username, user.username);
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(id, authorities, password, confirmPassword, username, accountNonExpired, accountNonLocked, credentialsNonExpired, enabled);
     }
 }

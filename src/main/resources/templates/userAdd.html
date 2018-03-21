@@ -1,0 +1,86 @@
+<th:block xmlns:th="http://www.thymeleaf.org" th:include="layout">
+    <div th:fragment="content">
+
+
+        <form class="form-horizontal" role="form" th:object="${user}" th:action="@{/users/addNewUser}" th:method="post">
+            <input name="id" th:field="*{id}" type="hidden"/>
+            <div class="form-group">
+                <div th:if="${usernameErorThis}" class="alert alert-danger" role="alert">Username already exists!
+                </div>
+                <label class="col-md-3 control-label">Username:</label>
+                <div class="col-md-8">
+                    <div th:if="${usernameEror}" class="alert alert-danger" role="alert">Username must be at least 3
+                        characters!
+                    </div>
+                    <input name="username" class="form-control" type="text" th:field="*{username}"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-3 control-label">Password:</label>
+                <div class="col-md-8">
+                    <div class="alert alert-info" th:if="${passEror}" role="alert"> The password and confirm password
+                        fields do not match!
+                    </div>
+                    <div th:if="${passErorcharacters}" class="alert alert-info" role="alert"> The password must be at least 6
+                        characters!
+                    </div>
+                    <input name="password" class="form-control" type="password"  th:field="*{password}"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-3 control-label">Confirm password:</label>
+                <div class="col-md-8">
+                    <input name="confirmPassword" class="form-control" type="password" th:field="*{confirmPassword}"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-3 control-label">User Role</label>
+                <div class="col-md-8">
+                    <select name="authorities" class="form-control" th:field="*{authorities}">
+                        <option th:each="state : ${role}"
+                                th:value="${state}"
+                                th:text="${state}">
+                        </option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-check">
+                <label class="form-check-label col-md-12">
+                    <input type="checkbox" name="accountNonLocked" th:field="*{accountNonLocked}"
+                           class="form-check-input"/>
+                    Account Non Locked
+                </label>
+            </div>
+            <div class="form-check">
+                <label class="form-check-label col-md-12">
+                    <input type="checkbox" name="accountNonExpired" th:field="*{accountNonExpired}"
+                           class="form-check-input"/>
+                    Account Non Expired
+                </label>
+            </div>
+            <div class="form-check">
+                <label class="form-check-label col-md-12">
+                    <input type="checkbox" name="credentialsNonExpired" th:field="*{credentialsNonExpired}"
+                           class="form-check-input"/>
+                    Credentia ls Non Expired
+                </label>
+            </div>
+            <div class="form-check">
+                <label class="form-check-label col-md-12">
+                    <input type="checkbox" name="enabled" th:field="*{enabled}"
+                           class="form-check-input"/>
+                    Account Enable
+                </label>
+            </div>
+            <div class="form-group">
+                <label class="col-md-3 control-label"></label>
+                <div class="col-md-8">
+                    <a role="button" class="btn btn-secondary float-right" th:href="@{/}">Cancel</a>
+                    <input type="submit" class="btn btn-primary float-right" value="Save Changes"/>
+
+                </div>
+            </div>
+        </form>
+    </div>
+</th:block>
+

@@ -26,6 +26,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .authorizeRequests()
                 .antMatchers("/css/*","/js/*").permitAll()
+                .antMatchers("/users/management").hasRole("ADMIN")
                 .anyRequest().authenticated()
                 .and()
                 .logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout")).permitAll();
@@ -43,7 +44,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(userService).passwordEncoder(bcryptPasswordEncoder());
-      //  auth.inMemoryAuthentication().withUser("user").password("user").roles("USER");
+
+        // auth.inMemoryAuthentication().withUser("user").password("user").roles("USER");
     }
 
 

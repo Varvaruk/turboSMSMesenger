@@ -12,6 +12,7 @@ public interface UserService {
     void save(User user);
 
     void delete(User user);
+    User getUserById(String Id);
 
     Optional<User> findByUsername(String username);
 
