@@ -5,5 +5,5 @@ import org.springframework.stereotype.Service;
 
 @Service
 public interface SmsService {
-    void addSms(Sms sms);
+    void save(Sms sms);
 }

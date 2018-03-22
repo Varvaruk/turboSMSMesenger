@@ -18,11 +18,11 @@ public class Student {
     private String sum;
     private String comment;
     private String notation;
-    @ManyToMany
+    @ManyToMany (fetch = FetchType.EAGER)
             @JoinTable(name = "StudentGroup",
             joinColumns = {@JoinColumn(name = "stud_id",referencedColumnName = "id")},
-            inverseJoinColumns = {@JoinColumn(name = "group_id",referencedColumnName = "id")})
-    List<Group> groups = new ArrayList<>();
+            inverseJoinColumns = {@JoinColumn(name = "group_id",referencedColumnName = "id")} )
+    private List<Group> groups = new ArrayList<>();
 
     public Student() {
     }

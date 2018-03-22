@@ -189,20 +189,19 @@ public class GoogleJsonClientServiceImpl implements GoogleJsonClientService {
     }
 
     @Override
-    public List<Group> synchronizationGroupOfGOOGLE() throws IOException {
+    public Map<Group, List<Student>> getAllGroupsAndStudents() throws IOException {
         Map<String, String> allSpreadsheet = getSpreadsheetsAll();
-        List<Group> groupList = new ArrayList<>();
+        Map<Group, List<Student>> groupStudentMap = new HashMap<>();
         for (Map.Entry m : allSpreadsheet.entrySet()) {
             Group group = new Group();
             group.setName(m.getValue().toString());
             List<Student> studentList = getBySpreadsheetsId(m.getKey().toString());
-            group.setStudents(studentList);
-            groupList.add(group);
+            groupStudentMap.put(group, studentList);
         }
-
-
-        return groupList;
+        return groupStudentMap;
     }
+
+   // @Override
 
 
 }

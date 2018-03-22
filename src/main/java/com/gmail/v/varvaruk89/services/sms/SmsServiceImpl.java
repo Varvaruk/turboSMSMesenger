@@ -10,8 +10,7 @@ public class SmsServiceImpl implements SmsService {
     @Autowired
     private SmsRepository smsRepository;
 
-    @Override
-    public void addSms (Sms sms){
+    public void save(Sms sms){
         smsRepository.save(sms);
     }
 }

@@ -31,6 +31,18 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
+    public Student getByPhoneNumber(String phoneNuber) {
+        List<Student> studentList = (List<Student>) studentRepository.findAll();
+        for (Student student : studentList) {
+            if (student.getPhone().equals(phoneNuber)) {
+                return student;
+            }
+        }
+
+        return null;
+    }
+
+    @Override
     public List<Student> getAll() {
         return (List<Student>) studentRepository.findAll();
     }

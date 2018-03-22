@@ -18,5 +18,6 @@ public interface GoogleJsonClientService {
     Sheets getSheetsService() throws IOException;
     Map<String,String> getSpreadsheetsAll() throws IOException;
     List<Student> getBySpreadsheetsId(String spreadsheetId) throws IOException;
-    List<Group> synchronizationGroupOfGOOGLE() throws IOException;
+    Map<Group,List<Student>> getAllGroupsAndStudents() throws IOException;
+
 }
