@@ -20,6 +20,14 @@
                     <i class="fa fa-fw fa-users"></i>
                     <span class="nav-link-text">Groups</span>
                 </a>
+                <a class="nav-link" th:href="@{/groups}">
+                    <i class="fa fa-fw fa-paper-plane"></i>
+                    <span class="nav-link-text">Sending</span>
+                </a>
+                <a class="nav-link" th:href="@{/groups}">
+                    <i class="fa fa-fw fa-history"></i>
+                    <span class="nav-link-text">History</span>
+                </a>
             </li>
         </ul>
         <ul class="navbar-nav sidenav-toggler">
@@ -31,10 +39,10 @@
         </ul>
         <ul class="navbar-nav ml-auto">
             <li class="nav-item dropdown ">
-                <a sec:authentication="name" class="nav-link dropdown-toggle mr-lg-2" role="button" id="dropdownMenu"
+
+                <a  sec:authentication="name" class="nav-link dropdown-toggle mr-lg-2" role="button" id="dropdownMenu"
                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Test
-                </a>
+                   </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu">
                     <a class="dropdown-item" role="button" th:href="@{/users}">Edit my profile</a>
                     <a sec:authorize="${hasRole('ADMIN')}" class="dropdown-item" role="button"

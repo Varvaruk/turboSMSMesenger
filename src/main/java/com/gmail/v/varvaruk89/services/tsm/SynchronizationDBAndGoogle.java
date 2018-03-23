@@ -21,4 +21,5 @@ public interface SynchronizationDBAndGoogle {
     void addingStudentsToTheGroup(Group group, List<Student>studentList);
 
     void addingGroupsToTheStudents(Group group, List<Student> studentList);
+    List<Group> addGroup(Group group, Student student);
 }

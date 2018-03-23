@@ -79,7 +79,9 @@ public class SynchronizationDBAndGoogleImpl implements SynchronizationDBAndGoogl
         }
     }
 
+    @Override
     public List<Group> addGroup(Group group, Student student) {
+//Stecoverflow !!!!!!!!!!!!!!!!!!
 //        Set<Group> groupSet = new LinkedHashSet<>(student.getGroups());
 //        groupSet.add(group);
 //        List<Group> groupList = new ArrayList<>(groupSet);

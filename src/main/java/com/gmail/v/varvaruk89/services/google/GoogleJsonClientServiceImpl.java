@@ -195,7 +195,9 @@ public class GoogleJsonClientServiceImpl implements GoogleJsonClientService {
         for (Map.Entry m : allSpreadsheet.entrySet()) {
             Group group = new Group();
             group.setName(m.getValue().toString());
-            List<Student> studentList = getBySpreadsheetsId(m.getKey().toString());
+         //   List<Student> studentList = getBySpreadsheetsId(m.getKey().toString());
+           Set<Student> students = new HashSet<>(getBySpreadsheetsId(m.getKey().toString()));
+           List<Student> studentList = new ArrayList<>(students);
             groupStudentMap.put(group, studentList);
         }
         return groupStudentMap;

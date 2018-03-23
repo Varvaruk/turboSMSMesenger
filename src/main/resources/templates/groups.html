@@ -1,8 +1,30 @@
 <th:block xmlns:th="http://www.thymeleaf.org" th:include="layout">
 
     <div th:fragment="content">
-        <a role="button" class="btn btn-success" th:href="@{/messages/add}" th:method="get">Add </a>
-        <a role="button" class="btn btn-success" th:href="@{/synchronization}" th:method="get">Synchronize with
+        <!--<a role="button" class="btn btn-success" th:href="@{/messages/add}" th:method="get">Add </a>-->
+        <a href="#myModal" class="btn btn-success " data-toggle="modal">Add</a>
+        <!-- HTML-код модального окна -->
+        <div id="myModal" class="modal fade">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <!-- Заголовок модального окна -->
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                        <h4 class="modal-title">Заголовок модального окна</h4>
+                    </div>
+                    <!-- Основное содержимое модального окна -->
+                    <div class="modal-body">
+                        Содержимое модального окна...
+                    </div>
+                    <!-- Футер модального окна -->
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
+                        <button type="button" class="btn btn-primary">Сохранить изменения</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a role="button" class="btn btn-primary" th:href="@{/synchronization}" th:method="get">Synchronize with
             google</a>
         <div>
             <table class="table table-bordered dataTable" id="dataTable" width="100%" cellspacing="0">
@@ -26,6 +48,8 @@
                         <td th:text="${group.name}"></td>
                         <td><a title="Edit" role="button" class="btn"
                                th:href="@{/users/edit(id=${group.id})}"><i class="fa fa-fw fa-edit"></i></a>
+                            <a title="Edit" role="button" class="btn"
+                               th:href="@{/users/edit(id=${group.id})}"><i class="fa fa-fw fa-user-plus"></i></a>
                         </td>
                     </tr>
                     <tr th:id="'collapseGroup'+${group.id}" class="collapse"
