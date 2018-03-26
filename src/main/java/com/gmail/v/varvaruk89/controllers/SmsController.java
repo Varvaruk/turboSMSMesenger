@@ -18,7 +18,7 @@ public class SmsController {
     @RequestMapping("/sms")
     public String greeting(@RequestParam(value="name", required=false, defaultValue="World") String name, Model model) {
        String smstext = "Test otpravki. Vadim";
-       String [] pull = {"380936094346"};
+       String [] pull = {"0936094346"};
        String sign = "Autolux";
         for (String nomer:pull) {
             Sms sms = new Sms(nomer,sign,smstext);
@@ -26,7 +26,7 @@ public class SmsController {
 
         }
 
-        return "home";
+        return "index";
     }
 
 }

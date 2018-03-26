@@ -177,11 +177,20 @@ public class GoogleJsonClientServiceImpl implements GoogleJsonClientService {
                 if (row.size() > 5) {
                     student.setNotation(row.get(5).toString());
                 }
-                student.setName(row.get(0).toString());
-                student.setPhone(row.get(1).toString());
-                student.setSum(row.get(2).toString());
-                student.setComment(row.get(3).toString());
 
+                if ((row.size()>=1)&&(!(row.get(0) == null))) {
+                    student.setName(row.get(0).toString());
+                }
+
+                if ((row.size()>=2)&&(!(row.get(1) == null))) {
+                    student.setPhone(row.get(1).toString());
+                }
+                if ((row.size()>=3)&&(!(row.get(2) == null))) {
+                    student.setSum(row.get(2).toString());
+                }
+                if ((row.size()>=4)&&(!(row.get(3) == null))) {
+                    student.setComment(row.get(3).toString());
+                }
                 studentList.add(student);
             }
         }
@@ -195,15 +204,15 @@ public class GoogleJsonClientServiceImpl implements GoogleJsonClientService {
         for (Map.Entry m : allSpreadsheet.entrySet()) {
             Group group = new Group();
             group.setName(m.getValue().toString());
-         //   List<Student> studentList = getBySpreadsheetsId(m.getKey().toString());
-           Set<Student> students = new HashSet<>(getBySpreadsheetsId(m.getKey().toString()));
-           List<Student> studentList = new ArrayList<>(students);
+            //   List<Student> studentList = getBySpreadsheetsId(m.getKey().toString());
+            Set<Student> students = new HashSet<>(getBySpreadsheetsId(m.getKey().toString()));
+            List<Student> studentList = new ArrayList<>(students);
             groupStudentMap.put(group, studentList);
         }
         return groupStudentMap;
     }
 
-   // @Override
+    // @Override
 
 
 }

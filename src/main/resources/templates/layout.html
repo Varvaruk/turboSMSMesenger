@@ -2,6 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <th:block th:include="fragments/head::head"/>
+    <th:block th:include="fragments/scripts::scripts"/>
 </head>
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
 <div th:replace="fragments/navigation::nav"></div>
@@ -12,7 +13,7 @@
     <th:block th:include="fragments/logout::logout"/>
 </div>
 
-<th:block th:include="fragments/scripts::scripts"/>
+
 
 
 </body>

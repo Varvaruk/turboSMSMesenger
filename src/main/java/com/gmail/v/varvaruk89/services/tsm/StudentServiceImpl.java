@@ -5,6 +5,7 @@ import com.gmail.v.varvaruk89.repo.tsm.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Component
@@ -55,5 +56,21 @@ public class StudentServiceImpl implements StudentService {
     @Override
     public void delete(Student student) {
         studentRepository.delete(student);
+    }
+
+    @Override
+    public List<String> telephoneNumberConverter(String phone) {
+        String[] phones = phone.split(",");
+        List<String> telephoneNumber = new ArrayList<>();
+        for (String phoneNum:phones ) {
+            String number = "38";
+           String[]arrayPhone = phoneNum.split("-");
+            for (String arr:arrayPhone) {
+                number=number+arr;
+            }
+              telephoneNumber.add(number);
+        }
+
+        return telephoneNumber;
     }
 }

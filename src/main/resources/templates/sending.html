@@ -1,0 +1,70 @@
+<th:block xmlns:th="http://www.thymeleaf.org" th:include="layout">
+
+    <div th:fragment="content" >
+        <div class="bootstrap-iso">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <form   th:action="@{/sending}" th:method="post">
+                            <div class="form-group " >
+                                <label class="control-label " for="messageId">
+                                    Select message from templates:
+                                </label>
+                                <select title="Choose one of the following..."   class="select form-control selectpicker" id="messageId"    name="messageId">
+                                    <option th:value="${message.id}"  th:each="message : ${messageList}" th:text="${message.name}"></option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label " for="textMessage">
+                                    Message text:
+                                    <div th:if="${errorText}" class="alert alert-danger" role="alert">You can not send empty messages!</div>
+                                </label>
+                                <textarea class="form-control" cols="40" id="textMessage" name="textMessage" rows="10"  ></textarea>
+
+                            </div>
+                            <div class="form-group ">
+                                <label class="control-label " for="groupsIds">
+                                    Select a Groups:
+                                    <div th:if="${errorGroup}" class="alert alert-danger" role="alert">Select Recipients!</div>
+                                </label>
+                                <select title="Choose one of the following..."   class="select form-control selectpicker" id="groupsIds" name="groupsIds" data-actions-box="true" th:multiple="true"  >
+                                    <option th:value="${group.id}" th:each="group: ${groupList}" th:text="${group.name}"></option>
+                                </select>
+
+                            </div>
+                            <div class="form-group">
+                                <div>
+                                    <button class="btn btn-primary " name="submit" type="submit">
+                                        Submit
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script th:inline="javascript">
+            /*<![CDATA[*/
+
+            var messageList = /*[[${messageList}]]*/ 'messageList';
+
+            /*]]>*/
+
+            $('select').selectpicker();
+
+            $('#messageId').on('change', onChangeMessage);
+
+            function onChangeMessage(e) {
+                var targetMessageId = e.target.value;
+                var selectedMessage = messageList.find(function (value) {
+                    return value.id == targetMessageId;
+                });
+
+                $("#textMessage").val(selectedMessage.text);
+            }
+        </script>
+    </div>
+
+</th:block>
+

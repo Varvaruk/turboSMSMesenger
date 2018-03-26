@@ -12,8 +12,7 @@ public interface StudentService {
     Student getByName(String name);
     Student getByPhoneNumber(String phoneNuber);
     List<Student> getAll();
-
     void save(Student group);
-
     void delete(Student group);
+    List<String>   telephoneNumberConverter(String phone);
 }
