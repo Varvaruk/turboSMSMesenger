@@ -4,10 +4,15 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
+
 @Data
 @Entity
+
+
 @Table(name = "aluxsms")
 public class Sms {
+
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
@@ -23,7 +28,7 @@ public class Sms {
     @Column
     private String sign;
 
-    @Column
+    @Column()
     private String message;
 
     @Transient
@@ -54,9 +59,8 @@ public class Sms {
     @Transient
     private String errorCode;
 
-    //@Column
-    @Transient
-    private String status;
+    @Column(insertable = false,updatable = false)
+   private String status;
 
     public Sms() {
     }

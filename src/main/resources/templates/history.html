@@ -12,6 +12,7 @@
                     <th>Number</th>
                     <th>Message</th>
                     <th>Date</th>
+                    <th>Status</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -21,7 +22,7 @@
                     <td th:text="${smsService.getOne(history.getSms()).getNumber()}"></td>
                     <td th:text="${smsService.getOne(history.getSms()).getMessage()}"></td>
                     <td th:text="${#dates.format(history.getDate(), 'dd-MM-yyyy HH:mm:ss')}"></td>
-
+                    <td th:text="${smsService.getOne(history.getSms()).getStatus()}"></td>
                 </tr>
                 </tbody>
             </table>

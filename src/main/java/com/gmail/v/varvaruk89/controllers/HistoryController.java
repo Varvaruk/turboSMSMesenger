@@ -20,13 +20,16 @@ public class HistoryController {
 
     @Autowired
     SmsService smsService;
+
+
+
     @RequestMapping
     public String getHistory(ModelMap modelMap) {
 
         List<History> historyList = historyService.getAll();
         modelMap.addAttribute("historys",historyList);
         modelMap.addAttribute("smsService",smsService);
-
+    System.out.println(smsService.getOne("5403137").toString());
         return "history";
     }
 }

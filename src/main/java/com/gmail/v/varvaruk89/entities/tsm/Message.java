@@ -3,6 +3,7 @@ package com.gmail.v.varvaruk89.entities.tsm;
 import lombok.Data;
 
 import javax.persistence.*;
+import javax.validation.constraints.Size;
 
 
 @Entity
@@ -12,7 +13,9 @@ public class Message {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Size(max = 70)
     private String name;
+    @Size(max = 70)
     private String text;
 
     public Message() {

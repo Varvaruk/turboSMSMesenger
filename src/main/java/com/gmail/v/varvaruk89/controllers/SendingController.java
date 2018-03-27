@@ -39,32 +39,30 @@ public class SendingController {
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    public String sending(String messageId, String textMessage, String groupsIds,ModelMap modelMap) {
+    public String sending(String messageId, String textMessage, String groupsIds, ModelMap modelMap) {
 
         List<Group> groupList = groupService.getAll();
         List<Message> messageList = messageService.getAllMessages();
         modelMap.addAttribute("groupList", groupList);
         modelMap.addAttribute("messageList", messageList);
 
-        if(textMessage.equals("")) {
+        if (textMessage.equals("")) {
             modelMap.addAttribute("errorText", true);
-        return "sending";
+            return "sending";
         }
 
-        if(groupsIds==null){
+        if (groupsIds == null) {
             modelMap.addAttribute("errorGroup", true);
             return "sending";
         }
 
         List<Group> groups = new ArrayList<>();
         String[] groupsId = groupsIds.split(",");
-        for (String id:groupsId) {
+        for (String id : groupsId) {
             groups.add(groupService.getOne(id));
         }
-        sendingMessageToTheGroups.sendMessageToGroups(textMessage,groups);
+        sendingMessageToTheGroups.sendMessageToGroups(textMessage, groups);
 
-
-        System.out.println(messageId+textMessage+groupsIds.toString());
         return "redirect:/groups";
     }
 

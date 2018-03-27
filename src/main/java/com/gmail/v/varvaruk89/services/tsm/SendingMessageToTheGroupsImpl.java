@@ -42,6 +42,7 @@ public class SendingMessageToTheGroupsImpl implements SendingMessageToTheGroups 
             sms.setAdded(new Timestamp(System.currentTimeMillis()));
             smsService.save(sms);
             historyService.write(sms,user);
+
         }
 
     }
