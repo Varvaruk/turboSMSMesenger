@@ -1,0 +1,32 @@
+<th:block xmlns:th="http://www.thymeleaf.org" th:include="layout">
+
+    <div th:fragment="content">
+
+        <div>
+            <table class="table table-bordered dataTable"  id="dataTable"  width="100%" cellspacing="0">
+
+                <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>User</th>
+                    <th>Number</th>
+                    <th>Message</th>
+                    <th>Date</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:object="${smsService}" th:each="history : ${historys}">
+                    <td th:text="${history.id}"></td>
+                    <td th:text="${history.getUser().getUsername()}"></td>
+                    <td th:text="${smsService.getOne(history.getSms()).getNumber()}"></td>
+                    <td th:text="${smsService.getOne(history.getSms()).getMessage()}"></td>
+                    <td th:text="${#dates.format(history.getDate(), 'dd-MM-yyyy HH:mm:ss')}"></td>
+
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</th:block>
+

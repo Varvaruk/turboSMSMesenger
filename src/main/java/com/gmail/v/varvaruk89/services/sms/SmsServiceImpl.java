@@ -5,6 +5,8 @@ import com.gmail.v.varvaruk89.repo.sms.SmsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 @Component
 public class SmsServiceImpl implements SmsService {
     @Autowired
@@ -12,5 +14,17 @@ public class SmsServiceImpl implements SmsService {
 
     public void save(Sms sms){
         smsRepository.save(sms);
+    }
+
+    @Override
+    public Sms getOne(String id) {
+        return  smsRepository.findOne(Long.decode(id));
+
+
+    }
+
+    @Override
+    public List<Sms> getAllSms() {
+        return (List<Sms>) smsRepository.findAll();
     }
 }

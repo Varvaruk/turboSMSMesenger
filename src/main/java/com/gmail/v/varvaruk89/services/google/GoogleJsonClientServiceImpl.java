@@ -172,7 +172,7 @@ public class GoogleJsonClientServiceImpl implements GoogleJsonClientService {
         List<List<Object>> values = response.getValues();
 
         for (List row : values) {
-            if (row != null & row.size() > 1) {
+            if (row != null & row.size() >= 1) {
                 Student student = new Student();
                 if (row.size() > 5) {
                     student.setNotation(row.get(5).toString());

@@ -40,8 +40,7 @@ public class MessageServiceImpl implements MessageService {
 
     @Override
     public Message getOne(String id) {
-        System.out.println(id);
-        System.out.println(Long.parseLong(id));
+
      Message message= messageRepository.findOne(Long.decode(id));
 
         return message;
