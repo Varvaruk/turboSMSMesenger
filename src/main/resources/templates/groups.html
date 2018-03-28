@@ -12,7 +12,7 @@
                 <tr>
                     <th></th>
                     <th>Name</th>
-                    <th></th>
+
                 </tr>
                 </thead>
                 <tbody>
@@ -26,11 +26,7 @@
 
                         </td>
                         <td th:text="${group.name}"></td>
-                        <td><a title="Edit" role="button" class="btn"
-                               th:href="@{/users/edit(id=${group.id})}"><i class="fa fa-fw fa-edit"></i></a>
-                            <a title="Edit" role="button" class="btn"
-                               th:href="@{/users/edit(id=${group.id})}"><i class="fa fa-fw fa-user-plus"></i></a>
-                        </td>
+
                     </tr>
                     <tr th:id="'collapseGroup'+${group.id}" class="collapse"
                         th:attr="aria-labelledby='headingGroup'+${group.id}" data-parent="#dataTable">

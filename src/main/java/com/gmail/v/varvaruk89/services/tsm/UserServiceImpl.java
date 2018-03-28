@@ -110,8 +110,14 @@ public class UserServiceImpl implements UserService {
     @PostConstruct
     void in() {
 
-        User user = new User();
-        user.setUsername("admin");
+        User user;
+        if(!(findByUsername("admin").isPresent())) {
+            user = new User();
+            user.setUsername("admin");
+        }else{
+            user = findByUsername("admin").get();
+        }
+
         user.setPassword(new BCryptPasswordEncoder().encode("admin"));
         user.setCredentialsNonExpired(true);
         user.setAccountNonLocked(true);

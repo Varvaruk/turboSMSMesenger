@@ -63,7 +63,7 @@ public class SendingController {
         }
         sendingMessageToTheGroups.sendMessageToGroups(textMessage, groups);
 
-        return "redirect:/groups";
+        return "index";
     }
 
 
