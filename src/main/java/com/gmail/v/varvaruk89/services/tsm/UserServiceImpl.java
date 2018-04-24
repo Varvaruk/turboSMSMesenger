@@ -6,13 +6,14 @@ import com.gmail.v.varvaruk89.repo.tsm.UserRepository;
 import com.google.common.collect.ImmutableList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
 import java.util.List;
 import java.util.Optional;
 
-@Component
+@Service
+
 public class UserServiceImpl implements UserService {
 
 

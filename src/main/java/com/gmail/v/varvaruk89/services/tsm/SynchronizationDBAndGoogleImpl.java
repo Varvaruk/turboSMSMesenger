@@ -4,12 +4,13 @@ import com.gmail.v.varvaruk89.entities.tsm.Group;
 import com.gmail.v.varvaruk89.entities.tsm.Student;
 import com.gmail.v.varvaruk89.services.google.GoogleJsonClientService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import java.io.IOException;
-import java.util.*;
+import java.util.List;
+import java.util.Map;
 
-@Component
+@Service
 public class SynchronizationDBAndGoogleImpl implements SynchronizationDBAndGoogle {
 
     @Autowired

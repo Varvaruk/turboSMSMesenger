@@ -3,12 +3,12 @@ package com.gmail.v.varvaruk89.services.tsm;
 import com.gmail.v.varvaruk89.entities.tsm.Student;
 import com.gmail.v.varvaruk89.repo.tsm.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 
-@Component
+@Service
 public class StudentServiceImpl implements StudentService {
 
     @Autowired

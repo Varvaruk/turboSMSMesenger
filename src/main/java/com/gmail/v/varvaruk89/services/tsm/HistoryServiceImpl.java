@@ -5,11 +5,11 @@ import com.gmail.v.varvaruk89.entities.tsm.History;
 import com.gmail.v.varvaruk89.entities.tsm.User;
 import com.gmail.v.varvaruk89.repo.tsm.HistoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Component
+@Service
 public class HistoryServiceImpl implements HistoryService {
 
     @Autowired

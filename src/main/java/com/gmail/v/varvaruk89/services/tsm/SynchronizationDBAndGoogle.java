@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
-@Service
+
 public interface SynchronizationDBAndGoogle {
     void synchronizationDBAndGoogle(Map<Group, List<Student>> groupListMap) throws IOException;
 
